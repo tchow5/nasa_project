@@ -15,7 +15,8 @@ class App extends Component {
     
     this.state = {
       date: new Date(),
-      link: null
+      link: null,
+      description: null
     }
 
     
@@ -65,10 +66,12 @@ class App extends Component {
 
                               if (imageData.media_type ==='image'){
                                 this.setState({ link: imageData.url});
+                                this.setState({ description: imageData.explanation})
                                 console.log(this.state.link + "  url: " + imageData.url);
 
                               } else {
                                 this.setState({ link: 'https://apod.nasa.gov/apod/image/1904/M81salvatore1024.jpg'});
+                                this.setState({ description: "Tracking along the southern Milky Way this beautif…ears from Earth along the plane of the Milky Way."});
                               }
 
                             })
@@ -93,9 +96,12 @@ class App extends Component {
           onClickMonth={this.onClickMonth}
           value={this.state.date}
         />
+        <h4>Image:</h4>
         {this.state.link ? (
           <img src = {this.state.link} alt="new" />
         ) : null }
+        <h4>Description:</h4>
+        <p1>{this.state.description}</p1>
       </div>
     );
   }
