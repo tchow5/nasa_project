@@ -30,11 +30,12 @@ class App extends Component {
     return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
   }
 
-   pad = (num, size) => {
+   pad(num, size) {
     var s = num+"";
     while (s.length < size) s = "0" + s;
     return s;
   }
+
 
   formatDate = date => {
 
@@ -101,7 +102,7 @@ class App extends Component {
           <img src = {this.state.link} alt="new" />
         ) : null }
         <h4>Description:</h4>
-        <p1>{this.state.description}</p1>
+        <p>{this.state.description}</p>
       </div>
     );
   }
